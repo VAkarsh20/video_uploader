@@ -1,0 +1,558 @@
+2026-01-05 17:54:03,086 - INFO - PHASE: ASSET DISCOVERY
+2026-01-05 17:54:22,356 - INFO - Scanning directory: import sys
+2026-01-05 17:54:22,356 - ERROR - Invalid Path: Path is not a directory: import sys
+2026-01-05 17:54:22,356 - INFO - Scanning directory: from pathlib import Path
+2026-01-05 17:54:22,356 - ERROR - Invalid Path: Path is not a directory: from pathlib import Path
+2026-01-05 17:54:22,362 - INFO - Scanning directory: # Assuming your Logger class is in a file named logger_file.py
+2026-01-05 17:54:22,362 - ERROR - Invalid Path: Path is not a directory: # Assuming your Logger class is in a file named logger_file.py
+2026-01-05 17:54:22,367 - INFO - Scanning directory: # from logger_file import Logger
+2026-01-05 17:54:22,367 - ERROR - Invalid Path: Path is not a directory: # from logger_file import Logger
+2026-01-05 17:54:22,367 - INFO - Scanning directory: 
+2026-01-05 17:54:22,368 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,373 - INFO - Scanning directory: def get_video_assets(folder_path):
+2026-01-05 17:54:22,373 - ERROR - Invalid Path: Path is not a directory: def get_video_assets(folder_path):
+2026-01-05 17:54:22,373 - INFO - Scanning directory: """
+2026-01-05 17:54:22,373 - ERROR - Invalid Path: Path is not a directory: """
+2026-01-05 17:54:22,380 - INFO - Scanning directory: Scans a folder for specific video, image, and transcript extensions.
+2026-01-05 17:54:22,380 - ERROR - Invalid Path: Path is not a directory: Scans a folder for specific video, image, and transcript extensions.
+2026-01-05 17:54:22,385 - INFO - Scanning directory: """
+2026-01-05 17:54:22,385 - ERROR - Invalid Path: Path is not a directory: """
+2026-01-05 17:54:22,386 - INFO - Scanning directory: base_dir = Path(folder_path)
+2026-01-05 17:54:22,386 - ERROR - Invalid Path: Path is not a directory: base_dir = Path(folder_path)
+2026-01-05 17:54:22,386 - INFO - Scanning directory: 
+2026-01-05 17:54:22,386 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,391 - INFO - Scanning directory: if not base_dir.is_dir():
+2026-01-05 17:54:22,391 - ERROR - Invalid Path: Path is not a directory: if not base_dir.is_dir():
+2026-01-05 17:54:22,398 - INFO - Scanning directory: raise ValueError(f"Path is not a directory: {folder_path}")
+2026-01-05 17:54:22,398 - ERROR - Invalid Path: Path is not a directory: raise ValueError(f"Path is not a directory: {folder_path}")
+2026-01-05 17:54:22,398 - INFO - Scanning directory: 
+2026-01-05 17:54:22,398 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,403 - INFO - Scanning directory: video = None
+2026-01-05 17:54:22,403 - ERROR - Invalid Path: Path is not a directory: video = None
+2026-01-05 17:54:22,403 - INFO - Scanning directory: cover = None
+2026-01-05 17:54:22,403 - ERROR - Invalid Path: Path is not a directory: cover = None
+2026-01-05 17:54:22,409 - INFO - Scanning directory: transcript = None
+2026-01-05 17:54:22,409 - ERROR - Invalid Path: Path is not a directory: transcript = None
+2026-01-05 17:54:22,409 - INFO - Scanning directory: 
+2026-01-05 17:54:22,410 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,410 - INFO - Scanning directory: # Iterate through files in the directory
+2026-01-05 17:54:22,410 - ERROR - Invalid Path: Path is not a directory: # Iterate through files in the directory
+2026-01-05 17:54:22,416 - INFO - Scanning directory: for file in base_dir.iterdir():
+2026-01-05 17:54:22,416 - ERROR - Invalid Path: Path is not a directory: for file in base_dir.iterdir():
+2026-01-05 17:54:22,423 - INFO - Scanning directory: if file.is_file():
+2026-01-05 17:54:22,423 - ERROR - Invalid Path: Path is not a directory: if file.is_file():
+2026-01-05 17:54:22,423 - INFO - Scanning directory: ext = file.suffix.lower()
+2026-01-05 17:54:22,423 - ERROR - Invalid Path: Path is not a directory: ext = file.suffix.lower()
+2026-01-05 17:54:22,428 - INFO - Scanning directory: if ext == ".mov":
+2026-01-05 17:54:22,429 - ERROR - Invalid Path: Path is not a directory: if ext == ".mov":
+2026-01-05 17:54:22,434 - INFO - Scanning directory: video = str(file)
+2026-01-05 17:54:22,434 - ERROR - Invalid Path: Path is not a directory: video = str(file)
+2026-01-05 17:54:22,434 - INFO - Scanning directory: elif ext == ".jpg":
+2026-01-05 17:54:22,434 - ERROR - Invalid Path: Path is not a directory: elif ext == ".jpg":
+2026-01-05 17:54:22,439 - INFO - Scanning directory: cover = str(file)
+2026-01-05 17:54:22,439 - ERROR - Invalid Path: Path is not a directory: cover = str(file)
+2026-01-05 17:54:22,446 - INFO - Scanning directory: elif ext == ".srt":
+2026-01-05 17:54:22,446 - ERROR - Invalid Path: Path is not a directory: elif ext == ".srt":
+2026-01-05 17:54:22,446 - INFO - Scanning directory: transcript = str(file)
+2026-01-05 17:54:22,446 - ERROR - Invalid Path: Path is not a directory: transcript = str(file)
+2026-01-05 17:54:22,446 - INFO - Scanning directory: 
+2026-01-05 17:54:22,446 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,458 - INFO - Scanning directory: # Validate that we found all three required components
+2026-01-05 17:54:22,458 - ERROR - Invalid Path: Path is not a directory: # Validate that we found all three required components
+2026-01-05 17:54:22,463 - INFO - Scanning directory: if not all([video, cover, transcript]):
+2026-01-05 17:54:22,463 - ERROR - Invalid Path: Path is not a directory: if not all([video, cover, transcript]):
+2026-01-05 17:54:22,463 - INFO - Scanning directory: missing = []
+2026-01-05 17:54:22,463 - ERROR - Invalid Path: Path is not a directory: missing = []
+2026-01-05 17:54:22,468 - INFO - Scanning directory: if not video: missing.append(".mov")
+2026-01-05 17:54:22,468 - ERROR - Invalid Path: Path is not a directory: if not video: missing.append(".mov")
+2026-01-05 17:54:22,473 - INFO - Scanning directory: if not cover: missing.append(".jpg")
+2026-01-05 17:54:22,473 - ERROR - Invalid Path: Path is not a directory: if not cover: missing.append(".jpg")
+2026-01-05 17:54:22,480 - INFO - Scanning directory: if not transcript: missing.append(".srt")
+2026-01-05 17:54:22,480 - ERROR - Invalid Path: Path is not a directory: if not transcript: missing.append(".srt")
+2026-01-05 17:54:22,485 - INFO - Scanning directory: raise FileNotFoundError(f"Missing assets: {', '.join(missing)}")
+2026-01-05 17:54:22,485 - ERROR - Invalid Path: Path is not a directory: raise FileNotFoundError(f"Missing assets: {', '.join(missing)}")
+2026-01-05 17:54:22,485 - INFO - Scanning directory: 
+2026-01-05 17:54:22,486 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,491 - INFO - Scanning directory: return video, cover, transcript
+2026-01-05 17:54:22,491 - ERROR - Invalid Path: Path is not a directory: return video, cover, transcript
+2026-01-05 17:54:22,491 - INFO - Scanning directory: 
+2026-01-05 17:54:22,491 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,491 - INFO - Scanning directory: def main():
+2026-01-05 17:54:22,492 - ERROR - Invalid Path: Path is not a directory: def main():
+2026-01-05 17:54:22,496 - INFO - Scanning directory: # 1. Initialize your custom logger
+2026-01-05 17:54:22,496 - ERROR - Invalid Path: Path is not a directory: # 1. Initialize your custom logger
+2026-01-05 17:54:22,503 - INFO - Scanning directory: Logger(log_file_path="automation.log")
+2026-01-05 17:54:22,503 - ERROR - Invalid Path: Path is not a directory: Logger(log_file_path="automation.log")
+2026-01-05 17:54:22,503 - INFO - Scanning directory: 
+2026-01-05 17:54:22,503 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,508 - INFO - Scanning directory: Logger.phase("Asset Discovery")
+2026-01-05 17:54:22,508 - ERROR - Invalid Path: Path is not a directory: Logger.phase("Asset Discovery")
+2026-01-05 17:54:22,508 - INFO - Scanning directory: 
+2026-01-05 17:54:22,509 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,509 - INFO - Scanning directory: while True:
+2026-01-05 17:54:22,509 - ERROR - Invalid Path: Path is not a directory: while True:
+2026-01-05 17:54:22,509 - INFO - Scanning directory: try:
+2026-01-05 17:54:22,509 - ERROR - Invalid Path: Path is not a directory: try:
+2026-01-05 17:54:22,519 - INFO - Scanning directory: # Get user input with your class's color formatting
+2026-01-05 17:54:22,519 - ERROR - Invalid Path: Path is not a directory: # Get user input with your class's color formatting
+2026-01-05 17:54:22,531 - INFO - Scanning directory: print(f"\n{Logger.BOLD}{Logger.INFO}[INPUT]{Logger.ENDC} Enter folder path (or 'q' to quit): ", end="")
+2026-01-05 17:54:22,531 - ERROR - Invalid Path: Path is not a directory: print(f"\n{Logger.BOLD}{Logger.INFO}[INPUT]{Logger.ENDC} Enter folder path (or 'q' to quit): ", end="")
+2026-01-05 17:54:22,537 - INFO - Scanning directory: user_input = input().strip()
+2026-01-05 17:54:22,537 - ERROR - Invalid Path: Path is not a directory: user_input = input().strip()
+2026-01-05 17:54:22,537 - INFO - Scanning directory: 
+2026-01-05 17:54:22,538 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,544 - INFO - Scanning directory: if user_input.lower() == 'q':
+2026-01-05 17:54:22,544 - ERROR - Invalid Path: Path is not a directory: if user_input.lower() == 'q':
+2026-01-05 17:54:22,549 - INFO - Scanning directory: Logger.info("Exiting workflow.")
+2026-01-05 17:54:22,549 - ERROR - Invalid Path: Path is not a directory: Logger.info("Exiting workflow.")
+2026-01-05 17:54:22,549 - INFO - Scanning directory: break
+2026-01-05 17:54:22,549 - ERROR - Invalid Path: Path is not a directory: break
+2026-01-05 17:54:22,549 - INFO - Scanning directory: 
+2026-01-05 17:54:22,550 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,560 - INFO - Scanning directory: Logger.info(f"Scanning directory: {user_input}")
+2026-01-05 17:54:22,560 - ERROR - Invalid Path: Path is not a directory: Logger.info(f"Scanning directory: {user_input}")
+2026-01-05 17:54:22,560 - INFO - Scanning directory: 
+2026-01-05 17:54:22,561 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,566 - INFO - Scanning directory: # Attempt to retrieve paths
+2026-01-05 17:54:22,566 - ERROR - Invalid Path: Path is not a directory: # Attempt to retrieve paths
+2026-01-05 17:54:22,572 - INFO - Scanning directory: video, cover, transcript = get_video_assets(user_input)
+2026-01-05 17:54:22,572 - ERROR - Invalid Path: Path is not a directory: video, cover, transcript = get_video_assets(user_input)
+2026-01-05 17:54:22,573 - INFO - Scanning directory: 
+2026-01-05 17:54:22,573 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,578 - INFO - Scanning directory: # Log successes using your class methods
+2026-01-05 17:54:22,578 - ERROR - Invalid Path: Path is not a directory: # Log successes using your class methods
+2026-01-05 17:54:22,589 - INFO - Scanning directory: Logger.success("All required assets located successfully.")
+2026-01-05 17:54:22,589 - ERROR - Invalid Path: Path is not a directory: Logger.success("All required assets located successfully.")
+2026-01-05 17:54:22,596 - INFO - Scanning directory: Logger.info(f"Video Path: {video}")
+2026-01-05 17:54:22,596 - ERROR - Invalid Path: Path is not a directory: Logger.info(f"Video Path: {video}")
+2026-01-05 17:54:22,601 - INFO - Scanning directory: Logger.info(f"Cover Path: {cover}")
+2026-01-05 17:54:22,601 - ERROR - Invalid Path: Path is not a directory: Logger.info(f"Cover Path: {cover}")
+2026-01-05 17:54:22,606 - INFO - Scanning directory: Logger.info(f"Transcript Path: {transcript}")
+2026-01-05 17:54:22,606 - ERROR - Invalid Path: Path is not a directory: Logger.info(f"Transcript Path: {transcript}")
+2026-01-05 17:54:22,607 - INFO - Scanning directory: 
+2026-01-05 17:54:22,607 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,612 - INFO - Scanning directory: # Next phase placeholder
+2026-01-05 17:54:22,612 - ERROR - Invalid Path: Path is not a directory: # Next phase placeholder
+2026-01-05 17:54:22,620 - INFO - Scanning directory: # Logger.phase("YouTube Upload")
+2026-01-05 17:54:22,621 - ERROR - Invalid Path: Path is not a directory: # Logger.phase("YouTube Upload")
+2026-01-05 17:54:22,621 - INFO - Scanning directory: # ... upload logic ...
+2026-01-05 17:54:22,621 - ERROR - Invalid Path: Path is not a directory: # ... upload logic ...
+2026-01-05 17:54:22,622 - INFO - Scanning directory: 
+2026-01-05 17:54:22,622 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,624 - INFO - Scanning directory: except ValueError as ve:
+2026-01-05 17:54:22,624 - ERROR - Invalid Path: Path is not a directory: except ValueError as ve:
+2026-01-05 17:54:22,630 - INFO - Scanning directory: Logger.error(f"Invalid Path: {ve}")
+2026-01-05 17:54:22,630 - ERROR - Invalid Path: Path is not a directory: Logger.error(f"Invalid Path: {ve}")
+2026-01-05 17:54:22,636 - INFO - Scanning directory: except FileNotFoundError as fnf:
+2026-01-05 17:54:22,636 - ERROR - Invalid Path: Path is not a directory: except FileNotFoundError as fnf:
+2026-01-05 17:54:22,636 - INFO - Scanning directory: Logger.error(fnf)
+2026-01-05 17:54:22,636 - ERROR - Invalid Path: Path is not a directory: Logger.error(fnf)
+2026-01-05 17:54:22,643 - INFO - Scanning directory: except KeyboardInterrupt:
+2026-01-05 17:54:22,643 - ERROR - Invalid Path: Path is not a directory: except KeyboardInterrupt:
+2026-01-05 17:54:22,647 - INFO - Scanning directory: print() # Clean newline after ^C
+2026-01-05 17:54:22,647 - ERROR - Invalid Path: Path is not a directory: print() # Clean newline after ^C
+2026-01-05 17:54:22,654 - INFO - Scanning directory: Logger.warning("Process interrupted by user.")
+2026-01-05 17:54:22,654 - ERROR - Invalid Path: Path is not a directory: Logger.warning("Process interrupted by user.")
+2026-01-05 17:54:22,659 - INFO - Scanning directory: break
+2026-01-05 17:54:22,659 - ERROR - Invalid Path: Path is not a directory: break
+2026-01-05 17:54:22,659 - INFO - Scanning directory: except Exception as e:
+2026-01-05 17:54:22,659 - ERROR - Invalid Path: Path is not a directory: except Exception as e:
+2026-01-05 17:54:22,671 - INFO - Scanning directory: Logger.error(f"Unexpected error: {e}", exc_info=True)
+2026-01-05 17:54:22,671 - ERROR - Invalid Path: Path is not a directory: Logger.error(f"Unexpected error: {e}", exc_info=True)
+2026-01-05 17:54:22,671 - INFO - Scanning directory: 
+2026-01-05 17:54:22,672 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 17:54:22,672 - INFO - Scanning directory: if __name__ == "__main__":
+2026-01-05 17:54:22,672 - ERROR - Invalid Path: Path is not a directory: if __name__ == "__main__":
+2026-01-05 17:54:24,277 - WARNING - Process interrupted by user.
+2026-01-05 17:54:27,137 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 17:55:24,153 - INFO - Scanning directory: '/Users/akarshv/Movies/CapCut/No Other Choice'
+2026-01-05 17:55:24,154 - ERROR - Invalid Path: Path is not a directory: '/Users/akarshv/Movies/CapCut/No Other Choice'
+2026-01-05 17:55:57,318 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 17:55:57,321 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 17:55:57,321 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 17:55:57,321 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 17:55:57,321 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 18:00:24,448 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 18:00:26,000 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 18:00:26,003 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 18:00:26,003 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 18:00:26,003 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 18:00:26,003 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 18:00:27,338 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 18:00:27,339 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 18:00:27,339 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 18:00:27,339 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 18:00:27,339 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 18:00:54,871 - WARNING - Process interrupted by user.
+2026-01-05 18:07:56,621 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 18:08:10,492 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 18:08:10,494 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 18:08:10,494 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 18:08:10,495 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 18:08:10,495 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 19:13:21,445 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 19:13:52,792 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 19:13:52,794 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 19:13:52,794 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 19:13:52,794 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 19:13:52,794 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 19:13:52,794 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 19:14:46,011 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 19:14:53,860 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 19:14:53,863 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 19:14:53,863 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 19:14:53,863 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 19:14:53,863 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 19:14:53,863 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 19:15:32,468 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 19:15:41,178 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 19:15:41,181 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 19:15:41,181 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 19:15:41,181 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 19:15:41,181 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 19:15:41,181 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 19:16:58,706 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 19:17:11,473 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 19:17:11,474 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 19:17:11,475 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 19:17:11,475 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 19:17:11,475 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 19:17:11,475 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 19:17:59,113 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 19:18:11,890 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 19:18:11,893 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 19:18:11,893 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 19:18:11,893 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 19:18:11,893 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 19:18:11,893 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 19:19:15,531 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 19:19:27,779 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 19:19:27,781 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 19:19:27,781 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 19:19:27,781 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 19:19:27,781 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 19:19:27,781 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 19:27:45,317 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 19:28:01,021 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 19:28:01,026 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 19:28:01,026 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 19:28:01,026 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 19:28:01,027 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 19:28:01,027 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 19:31:30,559 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 19:31:46,342 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/Is This Thing On
+2026-01-05 19:31:46,343 - INFO - Video Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.mov
+2026-01-05 19:31:46,344 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On-Cover.jpg
+2026-01-05 19:31:46,344 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.srt
+2026-01-05 19:31:46,344 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 19:31:46,344 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 20:01:41,470 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 20:01:53,972 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/Is This Thing On
+2026-01-05 20:01:53,974 - INFO - Video Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.mov
+2026-01-05 20:01:53,974 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On-Cover.jpg
+2026-01-05 20:01:53,974 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.srt
+2026-01-05 20:01:53,974 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 20:01:53,974 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 20:57:16,002 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 20:57:16,002 - INFO - Scanning directory: def upload_video(video_file, title, description, tags, srt_file_path, category_id="1"):
+2026-01-05 20:57:16,002 - ERROR - Invalid Path: Path is not a directory: def upload_video(video_file, title, description, tags, srt_file_path, category_id="1"):
+2026-01-05 20:57:16,002 - INFO - Scanning directory: os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1
+2026-01-05 20:57:16,002 - ERROR - Invalid Path: Path is not a directory: os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1
+2026-01-05 20:57:16,003 - INFO - Scanning directory: api_service_name = "youtube
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: api_service_name = "youtube
+2026-01-05 20:57:16,003 - INFO - Scanning directory: api_version = "v3
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: api_version = "v3
+2026-01-05 20:57:16,003 - INFO - Scanning directory: client_secrets_file = "client_secrets.json
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: client_secrets_file = "client_secrets.json
+2026-01-05 20:57:16,003 - INFO - Scanning directory: # Get credentials and create an API client
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: # Get credentials and create an API client
+2026-01-05 20:57:16,003 - INFO - Scanning directory: flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
+2026-01-05 20:57:16,003 - INFO - Scanning directory: client_secrets_file, SCOPES
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: client_secrets_file, SCOPES
+2026-01-05 20:57:16,003 - INFO - Scanning directory: )
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: )
+2026-01-05 20:57:16,003 - INFO - Scanning directory: credentials = flow.run_local_server(port=0)
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: credentials = flow.run_local_server(port=0)
+2026-01-05 20:57:16,003 - INFO - Scanning directory: youtube = googleapiclient.discovery.build(
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: youtube = googleapiclient.discovery.build(
+2026-01-05 20:57:16,003 - INFO - Scanning directory: api_service_name, api_version, credentials=credentials
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: api_service_name, api_version, credentials=credentials
+2026-01-05 20:57:16,003 - INFO - Scanning directory: )
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: )
+2026-01-05 20:57:16,003 - INFO - Scanning directory: body = {
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: body = {
+2026-01-05 20:57:16,003 - INFO - Scanning directory: snippet": {
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: snippet": {
+2026-01-05 20:57:16,003 - INFO - Scanning directory: title": title,
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: title": title,
+2026-01-05 20:57:16,003 - INFO - Scanning directory: description": description,
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: description": description,
+2026-01-05 20:57:16,003 - INFO - Scanning directory: tags": tags,
+2026-01-05 20:57:16,003 - ERROR - Invalid Path: Path is not a directory: tags": tags,
+2026-01-05 20:57:16,003 - INFO - Scanning directory: categoryId": category_id,
+2026-01-05 20:57:16,004 - ERROR - Invalid Path: Path is not a directory: categoryId": category_id,
+2026-01-05 20:57:16,004 - INFO - Scanning directory: # --- LANGUAGE SETTINGS ---
+2026-01-05 20:57:16,004 - ERROR - Invalid Path: Path is not a directory: # --- LANGUAGE SETTINGS ---
+2026-01-05 20:57:16,004 - INFO - Scanning directory: defaultLanguage": "en-US",  # Title & Description Language: English (United States)
+2026-01-05 20:57:16,004 - ERROR - Invalid Path: Path is not a directory: defaultLanguage": "en-US",  # Title & Description Language: English (United States)
+2026-01-05 20:57:16,004 - INFO - Scanning directory: defaultAudioLanguage": "en-US",  # Video Language: English (United States)
+2026-01-05 20:57:16,004 - ERROR - Invalid Path: Path is not a directory: defaultAudioLanguage": "en-US",  # Video Language: English (United States)
+2026-01-05 20:57:16,004 - INFO - Scanning directory: },
+2026-01-05 20:57:16,004 - ERROR - Invalid Path: Path is not a directory: },
+2026-01-05 20:57:16,004 - INFO - Scanning directory: status": {
+2026-01-05 20:57:16,004 - ERROR - Invalid Path: Path is not a directory: status": {
+2026-01-05 20:57:16,009 - INFO - Scanning directory: privacyStatus": "private",  # "private",  # options: public, private, unlisted
+2026-01-05 20:57:16,009 - ERROR - Invalid Path: Path is not a directory: privacyStatus": "private",  # "private",  # options: public, private, unlisted
+2026-01-05 20:57:16,014 - INFO - Scanning directory: selfDeclaredMadeForKids": False,
+2026-01-05 20:57:16,014 - ERROR - Invalid Path: Path is not a directory: selfDeclaredMadeForKids": False,
+2026-01-05 20:57:16,020 - INFO - Scanning directory: embeddable": True,  # Allow embedding
+2026-01-05 20:57:16,020 - ERROR - Invalid Path: Path is not a directory: embeddable": True,  # Allow embedding
+2026-01-05 20:57:16,032 - INFO - Scanning directory: license": "youtube",  # "youtube" (Standard) or "creativeCommon
+2026-01-05 20:57:16,032 - ERROR - Invalid Path: Path is not a directory: license": "youtube",  # "youtube" (Standard) or "creativeCommon
+2026-01-05 20:57:16,037 - INFO - Scanning directory: publicStatsViewable": True,  # Show how many viewers like this video
+2026-01-05 20:57:16,037 - ERROR - Invalid Path: Path is not a directory: publicStatsViewable": True,  # Show how many viewers like this video
+2026-01-05 20:57:16,049 - INFO - Scanning directory: containsSyntheticMedia": False,  # No AI/Synthetic Media
+2026-01-05 20:57:16,049 - ERROR - Invalid Path: Path is not a directory: containsSyntheticMedia": False,  # No AI/Synthetic Media
+2026-01-05 20:57:16,049 - INFO - Scanning directory: },
+2026-01-05 20:57:16,049 - ERROR - Invalid Path: Path is not a directory: },
+2026-01-05 20:57:16,054 - INFO - Scanning directory: contentDetails": {
+2026-01-05 20:57:16,054 - ERROR - Invalid Path: Path is not a directory: contentDetails": {
+2026-01-05 20:57:16,054 - INFO - Scanning directory: 
+2026-01-05 20:57:16,056 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 20:57:16,056 - INFO - Scanning directory: }
+2026-01-05 20:57:16,056 - ERROR - Invalid Path: Path is not a directory: }
+2026-01-05 20:57:16,056 - INFO - Scanning directory: }
+2026-01-05 20:57:16,056 - ERROR - Invalid Path: Path is not a directory: }
+2026-01-05 20:57:16,067 - INFO - Scanning directory: # Call the API's videos.insert method to create and upload the video
+2026-01-05 20:57:16,067 - ERROR - Invalid Path: Path is not a directory: # Call the API's videos.insert method to create and upload the video
+2026-01-05 20:57:16,073 - INFO - Scanning directory: insert_request = youtube.videos().insert(
+2026-01-05 20:57:16,073 - ERROR - Invalid Path: Path is not a directory: insert_request = youtube.videos().insert(
+2026-01-05 20:57:16,073 - INFO - Scanning directory: part="snippet,status",
+2026-01-05 20:57:16,073 - ERROR - Invalid Path: Path is not a directory: part="snippet,status",
+2026-01-05 20:57:16,079 - INFO - Scanning directory: body=body,
+2026-01-05 20:57:16,079 - ERROR - Invalid Path: Path is not a directory: body=body,
+2026-01-05 20:57:16,084 - INFO - Scanning directory: media_body=MediaFileUpload(video_file, chunksize=-1, resumable=True),
+2026-01-05 20:57:16,085 - ERROR - Invalid Path: Path is not a directory: media_body=MediaFileUpload(video_file, chunksize=-1, resumable=True),
+2026-01-05 20:57:16,085 - INFO - Scanning directory: )
+2026-01-05 20:57:16,085 - ERROR - Invalid Path: Path is not a directory: )
+2026-01-05 20:57:16,090 - INFO - Scanning directory: print(f"Uploading file: {video_file}...")
+2026-01-05 20:57:16,090 - ERROR - Invalid Path: Path is not a directory: print(f"Uploading file: {video_file}...")
+2026-01-05 20:57:16,097 - INFO - Scanning directory: response = None
+2026-01-05 20:57:16,097 - ERROR - Invalid Path: Path is not a directory: response = None
+2026-01-05 20:57:16,097 - INFO - Scanning directory: while response is None:
+2026-01-05 20:57:16,097 - ERROR - Invalid Path: Path is not a directory: while response is None:
+2026-01-05 20:57:16,103 - INFO - Scanning directory: status, response = insert_request.next_chunk()
+2026-01-05 20:57:16,103 - ERROR - Invalid Path: Path is not a directory: status, response = insert_request.next_chunk()
+2026-01-05 20:57:16,110 - INFO - Scanning directory: if status:
+2026-01-05 20:57:16,110 - ERROR - Invalid Path: Path is not a directory: if status:
+2026-01-05 20:57:16,116 - INFO - Scanning directory: print(f"Uploaded {int(status.progress() * 100)}%")
+2026-01-05 20:57:16,116 - ERROR - Invalid Path: Path is not a directory: print(f"Uploaded {int(status.progress() * 100)}%")
+2026-01-05 20:57:16,122 - INFO - Scanning directory: video_id = response["id"]
+2026-01-05 20:57:16,122 - ERROR - Invalid Path: Path is not a directory: video_id = response["id"]
+2026-01-05 20:57:16,127 - INFO - Scanning directory: print(f"Upload Complete! Video ID: {video_id}")
+2026-01-05 20:57:16,127 - ERROR - Invalid Path: Path is not a directory: print(f"Upload Complete! Video ID: {video_id}")
+2026-01-05 20:57:16,134 - INFO - Scanning directory: # Now upload the captions using the same 'youtube' client
+2026-01-05 20:57:16,134 - ERROR - Invalid Path: Path is not a directory: # Now upload the captions using the same 'youtube' client
+2026-01-05 20:57:16,134 - INFO - Scanning directory: srt_file = srt_file_path
+2026-01-05 20:57:16,134 - ERROR - Invalid Path: Path is not a directory: srt_file = srt_file_path
+2026-01-05 20:57:16,140 - INFO - Scanning directory: if os.path.exists(srt_file):
+2026-01-05 20:57:16,140 - ERROR - Invalid Path: Path is not a directory: if os.path.exists(srt_file):
+2026-01-05 20:57:16,145 - INFO - Scanning directory: upload_caption(youtube, video_id, srt_file)
+2026-01-05 20:57:16,146 - ERROR - Invalid Path: Path is not a directory: upload_caption(youtube, video_id, srt_file)
+2026-01-05 20:57:16,152 - INFO - Scanning directory: # Give YouTube a moment to register the new entry
+2026-01-05 20:57:16,152 - ERROR - Invalid Path: Path is not a directory: # Give YouTube a moment to register the new entry
+2026-01-05 20:57:16,157 - INFO - Scanning directory: time.sleep(2)
+2026-01-05 20:57:16,158 - ERROR - Invalid Path: Path is not a directory: time.sleep(2)
+2026-01-05 20:57:16,158 - INFO - Scanning directory: # New verification step
+2026-01-05 20:57:16,158 - ERROR - Invalid Path: Path is not a directory: # New verification step
+2026-01-05 20:57:16,163 - INFO - Scanning directory: verify_caption_status(youtube, video_id)
+2026-01-05 20:57:16,163 - ERROR - Invalid Path: Path is not a directory: verify_caption_status(youtube, video_id)
+2026-01-05 20:57:16,170 - INFO - Scanning directory: else:
+2026-01-05 20:57:16,170 - ERROR - Invalid Path: Path is not a directory: else:
+2026-01-05 20:57:16,176 - INFO - Scanning directory: print("SRT file not found, skipping caption upload.")
+2026-01-05 20:57:16,176 - ERROR - Invalid Path: Path is not a directory: print("SRT file not found, skipping caption upload.")
+2026-01-05 20:57:16,176 - INFO - Scanning directory: 
+2026-01-05 20:57:16,176 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 20:57:16,186 - INFO - Scanning directory: def upload_video(video_file, title, description, tags, srt_file_path, category_id="1"):
+2026-01-05 20:57:16,187 - ERROR - Invalid Path: Path is not a directory: def upload_video(video_file, title, description, tags, srt_file_path, category_id="1"):
+2026-01-05 20:57:16,193 - INFO - Scanning directory: os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1
+2026-01-05 20:57:16,193 - ERROR - Invalid Path: Path is not a directory: os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1
+2026-01-05 20:57:16,198 - INFO - Scanning directory: api_service_name = "youtube
+2026-01-05 20:57:16,199 - ERROR - Invalid Path: Path is not a directory: api_service_name = "youtube
+2026-01-05 20:57:16,199 - INFO - Scanning directory: api_version = "v3
+2026-01-05 20:57:16,199 - ERROR - Invalid Path: Path is not a directory: api_version = "v3
+2026-01-05 20:57:16,205 - INFO - Scanning directory: client_secrets_file = "client_secrets.json
+2026-01-05 20:57:16,205 - ERROR - Invalid Path: Path is not a directory: client_secrets_file = "client_secrets.json
+2026-01-05 20:57:16,211 - INFO - Scanning directory: # Get credentials and create an API client
+2026-01-05 20:57:16,211 - ERROR - Invalid Path: Path is not a directory: # Get credentials and create an API client
+2026-01-05 20:57:16,222 - INFO - Scanning directory: flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
+2026-01-05 20:57:16,223 - ERROR - Invalid Path: Path is not a directory: flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
+2026-01-05 20:57:16,229 - INFO - Scanning directory: client_secrets_file, SCOPES
+2026-01-05 20:57:16,229 - ERROR - Invalid Path: Path is not a directory: client_secrets_file, SCOPES
+2026-01-05 20:57:16,229 - INFO - Scanning directory: )
+2026-01-05 20:57:16,229 - ERROR - Invalid Path: Path is not a directory: )
+2026-01-05 20:57:16,234 - INFO - Scanning directory: credentials = flow.run_local_server(port=0)
+2026-01-05 20:57:16,235 - ERROR - Invalid Path: Path is not a directory: credentials = flow.run_local_server(port=0)
+2026-01-05 20:57:16,240 - INFO - Scanning directory: youtube = googleapiclient.discovery.build(
+2026-01-05 20:57:16,240 - ERROR - Invalid Path: Path is not a directory: youtube = googleapiclient.discovery.build(
+2026-01-05 20:57:16,247 - INFO - Scanning directory: api_service_name, api_version, credentials=credentials
+2026-01-05 20:57:16,247 - ERROR - Invalid Path: Path is not a directory: api_service_name, api_version, credentials=credentials
+2026-01-05 20:57:16,247 - INFO - Scanning directory: )
+2026-01-05 20:57:16,247 - ERROR - Invalid Path: Path is not a directory: )
+2026-01-05 20:57:16,247 - INFO - Scanning directory: body = {
+2026-01-05 20:57:16,247 - ERROR - Invalid Path: Path is not a directory: body = {
+2026-01-05 20:57:16,252 - INFO - Scanning directory: snippet": {
+2026-01-05 20:57:16,253 - ERROR - Invalid Path: Path is not a directory: snippet": {
+2026-01-05 20:57:16,253 - INFO - Scanning directory: title": title,
+2026-01-05 20:57:16,253 - ERROR - Invalid Path: Path is not a directory: title": title,
+2026-01-05 20:57:16,259 - INFO - Scanning directory: description": description,
+2026-01-05 20:57:16,259 - ERROR - Invalid Path: Path is not a directory: description": description,
+2026-01-05 20:57:16,264 - INFO - Scanning directory: tags": tags,
+2026-01-05 20:57:16,264 - ERROR - Invalid Path: Path is not a directory: tags": tags,
+2026-01-05 20:57:16,265 - INFO - Scanning directory: categoryId": category_id,
+2026-01-05 20:57:16,265 - ERROR - Invalid Path: Path is not a directory: categoryId": category_id,
+2026-01-05 20:57:16,271 - INFO - Scanning directory: # --- LANGUAGE SETTINGS ---
+2026-01-05 20:57:16,271 - ERROR - Invalid Path: Path is not a directory: # --- LANGUAGE SETTINGS ---
+2026-01-05 20:57:16,281 - INFO - Scanning directory: defaultLanguage": "en-US",  # Title & Description Language: English (United States)
+2026-01-05 20:57:16,282 - ERROR - Invalid Path: Path is not a directory: defaultLanguage": "en-US",  # Title & Description Language: English (United States)
+2026-01-05 20:57:16,294 - INFO - Scanning directory: defaultAudioLanguage": "en-US",  # Video Language: English (United States)
+2026-01-05 20:57:16,294 - ERROR - Invalid Path: Path is not a directory: defaultAudioLanguage": "en-US",  # Video Language: English (United States)
+2026-01-05 20:57:16,294 - INFO - Scanning directory: },
+2026-01-05 20:57:16,294 - ERROR - Invalid Path: Path is not a directory: },
+2026-01-05 20:57:16,294 - INFO - Scanning directory: status": {
+2026-01-05 20:57:16,294 - ERROR - Invalid Path: Path is not a directory: status": {
+2026-01-05 20:57:16,306 - INFO - Scanning directory: privacyStatus": "private",  # "private",  # options: public, private, unlisted
+2026-01-05 20:57:16,306 - ERROR - Invalid Path: Path is not a directory: privacyStatus": "private",  # "private",  # options: public, private, unlisted
+2026-01-05 20:57:16,311 - INFO - Scanning directory: selfDeclaredMadeForKids": False,
+2026-01-05 20:57:16,312 - ERROR - Invalid Path: Path is not a directory: selfDeclaredMadeForKids": False,
+2026-01-05 20:57:16,318 - INFO - Scanning directory: 
+2026-01-05 20:57:16,319 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 20:57:16,324 - INFO - Scanning directory: embeddable": True,  # Allow embedding
+2026-01-05 20:57:16,324 - ERROR - Invalid Path: Path is not a directory: embeddable": True,  # Allow embedding
+2026-01-05 20:57:16,330 - INFO - Scanning directory: license": "youtube",  # "youtube" (Standard)
+2026-01-05 20:57:16,331 - ERROR - Invalid Path: Path is not a directory: license": "youtube",  # "youtube" (Standard)
+2026-01-05 20:57:16,336 - INFO - Scanning directory: publicStatsViewable": True,  # Show how many viewers like this video
+2026-01-05 20:57:16,336 - ERROR - Invalid Path: Path is not a directory: publicStatsViewable": True,  # Show how many viewers like this video
+2026-01-05 20:57:16,348 - INFO - Scanning directory: containsSyntheticMedia": False,  # No AI/Synthetic Media
+2026-01-05 20:57:16,348 - ERROR - Invalid Path: Path is not a directory: containsSyntheticMedia": False,  # No AI/Synthetic Media
+2026-01-05 20:57:16,348 - INFO - Scanning directory: },
+2026-01-05 20:57:16,348 - ERROR - Invalid Path: Path is not a directory: },
+2026-01-05 20:57:16,353 - INFO - Scanning directory: contentDetails": {"caption": True},
+2026-01-05 20:57:16,354 - ERROR - Invalid Path: Path is not a directory: contentDetails": {"caption": True},
+2026-01-05 20:57:16,354 - INFO - Scanning directory: }
+2026-01-05 20:57:16,354 - ERROR - Invalid Path: Path is not a directory: }
+2026-01-05 20:57:16,360 - INFO - Scanning directory: # Call the API's videos.insert method to create and upload the video
+2026-01-05 20:57:16,360 - ERROR - Invalid Path: Path is not a directory: # Call the API's videos.insert method to create and upload the video
+2026-01-05 20:57:16,366 - INFO - Scanning directory: insert_request = youtube.videos().insert(
+2026-01-05 20:57:16,366 - ERROR - Invalid Path: Path is not a directory: insert_request = youtube.videos().insert(
+2026-01-05 20:57:16,372 - INFO - Scanning directory: part="snippet,status",
+2026-01-05 20:57:16,373 - ERROR - Invalid Path: Path is not a directory: part="snippet,status",
+2026-01-05 20:57:16,373 - INFO - Scanning directory: body=body,
+2026-01-05 20:57:16,373 - ERROR - Invalid Path: Path is not a directory: body=body,
+2026-01-05 20:57:16,384 - INFO - Scanning directory: media_body=MediaFileUpload(video_file, chunksize=-1, resumable=True),
+2026-01-05 20:57:16,385 - ERROR - Invalid Path: Path is not a directory: media_body=MediaFileUpload(video_file, chunksize=-1, resumable=True),
+2026-01-05 20:57:16,385 - INFO - Scanning directory: )
+2026-01-05 20:57:16,385 - ERROR - Invalid Path: Path is not a directory: )
+2026-01-05 20:57:16,391 - INFO - Scanning directory: print(f"Uploading file: {video_file}...")
+2026-01-05 20:57:16,391 - ERROR - Invalid Path: Path is not a directory: print(f"Uploading file: {video_file}...")
+2026-01-05 20:57:16,391 - INFO - Scanning directory: response = None
+2026-01-05 20:57:16,391 - ERROR - Invalid Path: Path is not a directory: response = None
+2026-01-05 20:57:16,397 - INFO - Scanning directory: while response is None:
+2026-01-05 20:57:16,397 - ERROR - Invalid Path: Path is not a directory: while response is None:
+2026-01-05 20:57:16,403 - INFO - Scanning directory: status, response = insert_request.next_chunk()
+2026-01-05 20:57:16,403 - ERROR - Invalid Path: Path is not a directory: status, response = insert_request.next_chunk()
+2026-01-05 20:57:16,403 - INFO - Scanning directory: if status:
+2026-01-05 20:57:16,404 - ERROR - Invalid Path: Path is not a directory: if status:
+2026-01-05 20:57:16,417 - INFO - Scanning directory: print(f"Uploaded {int(status.progress() * 100)}%")
+2026-01-05 20:57:16,417 - ERROR - Invalid Path: Path is not a directory: print(f"Uploaded {int(status.progress() * 100)}%")
+2026-01-05 20:57:16,417 - INFO - Scanning directory: video_id = response["id"]
+2026-01-05 20:57:16,417 - ERROR - Invalid Path: Path is not a directory: video_id = response["id"]
+2026-01-05 20:57:16,423 - INFO - Scanning directory: print(f"Upload Complete! Video ID: {video_id}")
+2026-01-05 20:57:16,423 - ERROR - Invalid Path: Path is not a directory: print(f"Upload Complete! Video ID: {video_id}")
+2026-01-05 20:57:16,434 - INFO - Scanning directory: # Now upload the captions using the same 'youtube' client
+2026-01-05 20:57:16,435 - ERROR - Invalid Path: Path is not a directory: # Now upload the captions using the same 'youtube' client
+2026-01-05 20:57:16,435 - INFO - Scanning directory: srt_file = srt_file_path
+2026-01-05 20:57:16,435 - ERROR - Invalid Path: Path is not a directory: srt_file = srt_file_path
+2026-01-05 20:57:16,441 - INFO - Scanning directory: if os.path.exists(srt_file):
+2026-01-05 20:57:16,441 - ERROR - Invalid Path: Path is not a directory: if os.path.exists(srt_file):
+2026-01-05 20:57:16,447 - INFO - Scanning directory: upload_caption(youtube, video_id, srt_file)
+2026-01-05 20:57:16,447 - ERROR - Invalid Path: Path is not a directory: upload_caption(youtube, video_id, srt_file)
+2026-01-05 20:57:16,452 - INFO - Scanning directory: # Give YouTube a moment to register the new entry
+2026-01-05 20:57:16,452 - ERROR - Invalid Path: Path is not a directory: # Give YouTube a moment to register the new entry
+2026-01-05 20:57:16,453 - INFO - Scanning directory: time.sleep(2)
+2026-01-05 20:57:16,453 - ERROR - Invalid Path: Path is not a directory: time.sleep(2)
+2026-01-05 20:57:16,458 - INFO - Scanning directory: # New verification step
+2026-01-05 20:57:16,458 - ERROR - Invalid Path: Path is not a directory: # New verification step
+2026-01-05 20:57:16,464 - INFO - Scanning directory: verify_caption_status(youtube, video_id)
+2026-01-05 20:57:16,465 - ERROR - Invalid Path: Path is not a directory: verify_caption_status(youtube, video_id)
+2026-01-05 20:57:16,465 - INFO - Scanning directory: else:
+2026-01-05 20:57:16,465 - ERROR - Invalid Path: Path is not a directory: else:
+2026-01-05 20:57:16,476 - INFO - Scanning directory: print("SRT file not found, skipping caption upload.")
+2026-01-05 20:57:16,477 - ERROR - Invalid Path: Path is not a directory: print("SRT file not found, skipping caption upload.")
+2026-01-05 20:57:16,477 - INFO - Scanning directory: 
+2026-01-05 20:57:16,477 - ERROR - Missing assets: .mov, .jpg
+2026-01-05 20:57:20,202 - WARNING - Process interrupted by user.
+2026-01-05 20:57:24,799 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 20:57:44,098 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/Is This Thing On
+2026-01-05 20:57:44,101 - INFO - Video Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.mov
+2026-01-05 20:57:44,101 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On-Cover.jpg
+2026-01-05 20:57:44,101 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.srt
+2026-01-05 20:57:44,101 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 20:57:44,101 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 21:00:27,334 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 21:01:52,155 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/Is This Thing On
+2026-01-05 21:01:52,158 - INFO - Video Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.mov
+2026-01-05 21:01:52,158 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On-Cover.jpg
+2026-01-05 21:01:52,158 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.srt
+2026-01-05 21:01:52,158 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 21:01:52,159 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 21:02:42,371 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 21:02:52,128 - WARNING - Process interrupted by user.
+2026-01-05 21:02:53,128 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 21:03:04,750 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/Is This Thing On
+2026-01-05 21:03:04,750 - INFO - Video Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.mov
+2026-01-05 21:03:04,750 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On-Cover.jpg
+2026-01-05 21:03:04,750 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.srt
+2026-01-05 21:03:04,750 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 21:03:04,751 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 21:03:44,796 - INFO - Checking caption registry for Video ID: AbABdc6Qdes...
+2026-01-05 21:03:44,796 - INFO - SUCCESS: Track Found: 'English' [en]
+2026-01-05 21:14:56,048 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 21:15:06,621 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/Is This Thing On
+2026-01-05 21:15:06,623 - INFO - Video Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.mov
+2026-01-05 21:15:06,623 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On-Cover.jpg
+2026-01-05 21:15:06,623 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.srt
+2026-01-05 21:15:06,623 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 21:15:06,624 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 21:15:49,039 - INFO - Checking caption registry for Video ID: _c4eYoU_7PY...
+2026-01-05 21:15:49,040 - INFO - SUCCESS: Track Found: 'English' [en]
+2026-01-05 21:21:29,488 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 21:21:37,899 - WARNING - Process interrupted by user.
+2026-01-05 21:33:16,779 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 21:33:36,772 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/Is This Thing On
+2026-01-05 21:33:36,775 - INFO - Video Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.mov
+2026-01-05 21:33:36,775 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On-Cover.jpg
+2026-01-05 21:33:36,775 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/Is This Thing On/Is This Thing On.srt
+2026-01-05 21:33:36,775 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 21:33:36,776 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 21:34:35,898 - INFO - Checking caption registry for Video ID: PBIBVHaMRg0...
+2026-01-05 21:34:35,900 - INFO - SUCCESS: Track Found: 'English (United States)' [en-US]
+2026-01-05 21:42:16,316 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 21:42:46,820 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 21:42:46,823 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 21:42:46,824 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 21:42:46,824 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 21:42:46,824 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 21:42:46,824 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 21:43:25,016 - INFO - Checking caption registry for Video ID: HwmQeNgflnA...
+2026-01-05 21:43:25,017 - INFO - SUCCESS: Track Found: 'English (United States)' [en-US]
+2026-01-05 21:57:37,338 - INFO - PHASE: VIDEO ASSET DISCOVERY
+2026-01-05 21:57:56,827 - INFO - Scanning directory: /Users/akarshv/Movies/CapCut/No Other Choice
+2026-01-05 21:57:56,829 - INFO - Video Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.mov
+2026-01-05 21:57:56,830 - INFO - Cover Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice-Cover.jpg
+2026-01-05 21:57:56,830 - INFO - Transcript Path: /Users/akarshv/Movies/CapCut/No Other Choice/No Other Choice.srt
+2026-01-05 21:57:56,830 - INFO - SUCCESS: All required assets located successfully.
+2026-01-05 21:57:56,830 - INFO - PHASE: YOUTUBE UPLOAD
+2026-01-05 21:58:22,617 - INFO - Checking caption registry for Video ID: z8PqCmalebc...
+2026-01-05 21:58:22,617 - INFO - SUCCESS: Track Found: 'English (United States)' [en-US]

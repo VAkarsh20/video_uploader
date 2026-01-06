@@ -6,9 +6,9 @@ Expected MD format:
 3..n. Thoughts (one or more paragraphs), terminated by a line containing a single dash `-`
 Last. Hashtags (single line starting with `#`)
 
-Usage: python3 scripts/description_to_list.py path/to/file.md
-Outputs a JSON array of strings to stdout.
+Usage: import from `utils.description_to_list` and call `description_to_list(Path)`
 """
+
 import json
 import sys
 from pathlib import Path

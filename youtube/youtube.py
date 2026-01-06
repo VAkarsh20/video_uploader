@@ -1,17 +1,30 @@
 import os
+import sys
+from pathlib import Path
+
+# Ensure project root is on sys.path so top-level packages (like `utils`) are importable
+project_root = Path(__file__).resolve().parents[1]
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
 import googleapiclient.errors
 from googleapiclient.http import MediaFileUpload
-from utils import description_to_list
+from utils.description_to_list import description_to_list
 from constants import YOUTUBE_DESCRIPTION
-from pathlib import Path
+from utils.video_asset_utils import get_video_asset_paths
+from logger import Logger
+import time
 
 # The scopes required to upload videos
-SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
+SCOPES = [
+    "https://www.googleapis.com/auth/youtube.upload",
+    "https://www.googleapis.com/auth/youtube.force-ssl",
+]
 
 
-def upload_video(video_file, title, description, tags, srt_file_path, category_id="1"):
+def create_youtube_client():
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
     api_service_name = "youtube"
     api_version = "v3"
@@ -22,12 +35,16 @@ def upload_video(video_file, title, description, tags, srt_file_path, category_i
         client_secrets_file, SCOPES
     )
     credentials = flow.run_local_server(port=0)
-    youtube = googleapiclient.discovery.build(
+    Logger.info("YouTube client created via OAuth flow.")
+    return googleapiclient.discovery.build(
         api_service_name, api_version, credentials=credentials
     )
 
-    with open("youtube_description.txt", "r") as f:
-        description = f.read()
+
+def upload_video(video_file, title, description, tags, srt_file_path, category_id="1"):
+    Logger.phase("YouTube Upload")
+    Logger.info(f"Preparing to upload: {video_file}")
+    youtube = create_youtube_client()
 
     body = {
         "snippet": {
@@ -35,10 +52,25 @@ def upload_video(video_file, title, description, tags, srt_file_path, category_i
             "description": description,
             "tags": tags,
             "categoryId": category_id,
+            # # --- LANGUAGE SETTINGS ---
+            "defaultLanguage": "en-US",  # Title & Description Language: English (United States)
+            "defaultAudioLanguage": "en-US",  # Video Language: English (United States)
         },
         "status": {
-            "privacyStatus": "draft",  # "private",  # options: public, private, unlisted
+            # --- VISIBILITY ---
+            "privacyStatus": "private",  # "private",  # options: public, private, unlisted
+            # --- MADE FOR KIDS ---
             "selfDeclaredMadeForKids": False,
+            "madeForKids": False,
+            # --- ALLOW EMBEDDING ---
+            "embeddable": True,  # Allow embedding
+            # --- LICENSE ---
+            "license": "youtube",  # "youtube" (Standard)
+            # --- SHOW LIKES ---
+            # Corresponds to "Show how many viewers like this video"
+            "publicStatsViewable": True,
+            # --- ALTERED CONTENT ---
+            "containsSyntheticMedia": False,  # No AI/Synthetic Media
         },
     }
 
@@ -57,61 +89,111 @@ def upload_video(video_file, title, description, tags, srt_file_path, category_i
             print(f"Uploaded {int(status.progress() * 100)}%")
 
     video_id = response["id"]
-    print(f"Upload Complete! Video ID: {video_id}")
+    Logger.success(f"Upload Complete! Video ID: {video_id}")
 
     # Now upload the captions using the same 'youtube' client
     srt_file = srt_file_path
     if os.path.exists(srt_file):
         upload_caption(youtube, video_id, srt_file)
+
+        # Give YouTube a moment to register the new entry
+        time.sleep(2)
+
+        # New verification step
+        verify_caption_status(youtube, video_id)
     else:
-        print("SRT file not found, skipping caption upload.")
+        Logger.warning("SRT file not found, skipping caption upload.")
 
 
 def upload_caption(youtube, video_id, srt_file_path):
     """
     Uploads an SRT file as a caption track for the specified video.
     """
-    print(f"Uploading captions for video ID: {video_id}...")
+    Logger.info(f"Uploading captions for video ID: {video_id}...")
 
     body = {
         "snippet": {
             "videoId": video_id,
-            "language": "en",  # The language of the captions
-            "name": "English",  # Label in the CC menu
+            "language": "en-US",  # The language of the captions
             "isDefault": True,  # Auto-display for viewers
         }
     }
 
-    # 'sync=True' is used if the SRT timestamps perfectly match the video audio
     insert_request = youtube.captions().insert(
         part="snippet",
         body=body,
         media_body=MediaFileUpload(srt_file_path, mimetype="application/octet-stream"),
-        sync=True,
+        sync=False,  # False to preserve your SRT timings exactly
     )
 
     response = insert_request.execute()
-    print(f"Captions uploaded! Status: {response['snippet']['status']}")
+    Logger.success(f"Captions uploaded! Status: {response['snippet']['status']}")
+
+
+def verify_caption_status(youtube, video_id):
+    """
+    Fetches the list of captions for a video and prints their current status.
+    """
+    try:
+        request = youtube.captions().list(part="snippet", videoId=video_id)
+        response = request.execute()
+        Logger.info(f"Checking caption registry for Video ID: {video_id}...")
+
+        items = response.get("items", [])
+        if not items:
+            Logger.warning("No caption tracks found in the registry yet.")
+            return
+
+        for item in items:
+            name = item["snippet"]["name"]
+            lang = item["snippet"]["language"]
+            status = item["snippet"]["status"]
+            track_kind = item["snippet"].get("trackKind", "standard")
+
+            # Using your Logger for consistent styling
+            Logger.success(f"Track Found: '{name}' [{lang}]")
+            print(f"      └─ Status: {status} | Type: {track_kind}")
+
+    except Exception as e:
+        Logger.error(f"Could not verify captions: {e}", exc_info=True)
 
 
 if __name__ == "__main__":
-    path = Path("No Other Choice Review (2026-01-04).md")
-    description_parts = description_to_list(path)
-    
-    title = description_parts[0]
-    description = YOUTUBE_DESCRIPTION.format(synopsis=description_parts[1], thoughts=description_parts[2], hashtags=description_parts[3])
-    
-    print(title)
-    print(description)
-    
-    # upload_video(
-    #     video_file="Is This Thing On.mov",
-    #     title="Automated Upload Test with sub minute #shorts",
-    #     description="This video was uploaded using a Python script.",
-    #     tags=["python", "automation", "api"],
-    #     srt_file_path="No Other Choice.srt",
-    # )
+    # 1. Get the validated asset paths from the user
+    # This replaces the hardcoded .mov and .srt strings
+    video_file, cover_file, srt_file_path = get_video_asset_paths()
 
-    # with open("youtube_description.txt", "r") as f:
-    #     description = f.read()
-    #     print(description)
+    # If the user chose to quit ('q'), exit the script gracefully
+    if not video_file:
+        sys.exit(0)
+
+    Logger(log_file_path="automation.log")
+
+    Logger.phase("Youtube Upload")
+
+    print(
+        f"\n{Logger.BOLD}{Logger.INFO}[INPUT]{Logger.ENDC} Enter the path to the description file (or 'q' to quit): ",
+        end="",
+    )
+    user_input = input().strip().strip("'").strip('"')
+    if user_input.lower() in ["q", "quit"]:
+        Logger.info("Exiting workflow.")
+        sys.exit(0)
+
+    path = Path(user_input)
+    description_parts = description_to_list(path)
+
+    title = description_parts[0]
+    description = YOUTUBE_DESCRIPTION.format(
+        synopsis=description_parts[1],
+        thoughts=description_parts[2],
+        hashtags=description_parts[3],
+    )
+
+    upload_video(
+        video_file=video_file,
+        title=title,
+        description=description,
+        tags=["python", "automation", "api"],
+        srt_file_path=srt_file_path,
+    )

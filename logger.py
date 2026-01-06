@@ -2,6 +2,7 @@ import logging
 import sys
 import time
 
+
 class Logger:
     HEADER = "\033[95m"
     INFO = "\033[94m"
@@ -20,7 +21,7 @@ class Logger:
             # File handler for plain text logging
             file_handler = logging.FileHandler(log_file_path)
             file_handler.setLevel(level)
-            formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+            formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
             file_handler.setFormatter(formatter)
             self._logger.addHandler(file_handler)
 
@@ -40,7 +41,9 @@ class Logger:
     @staticmethod
     def step(msg, x, y):
         # Aligned coordinate logging for scannability
-        print(f"    {Logger.ENDC}└─ {msg:<25} @ {Logger.BOLD}({int(x)}, {int(y)}){Logger.ENDC}")
+        print(
+            f"    {Logger.ENDC}└─ {msg:<25} @ {Logger.BOLD}({int(x)}, {int(y)}){Logger.ENDC}"
+        )
         logging.getLogger(__name__).info(f"STEP: {msg} @ ({int(x)}, {int(y)})")
 
     @staticmethod
@@ -67,11 +70,13 @@ class Logger:
     def progress(current, total, bar_length=20):
         percent = float(current) / total
         arrow = "#" * int(round(percent * bar_length) - 1) + ">"
-        spaces = " " * (bar_length - len(arrow)) 
+        spaces = " " * (bar_length - len(arrow))
         sys.stdout.write(
             f"    {Logger.INFO}Progress: [{arrow}{spaces}] {current}/{total} Clips{Logger.ENDC}"
         )
         sys.stdout.flush()
         if current == total:
             print()
-            logging.getLogger(__name__).info(f"Progress: {current}/{total} Clips (Complete)")
+            logging.getLogger(__name__).info(
+                f"Progress: {current}/{total} Clips (Complete)"
+            )
